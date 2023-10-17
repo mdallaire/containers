@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "config:base",
+    "docker:enableMajor",
+    ":disableRateLimiting",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":automergeDigest"
+  ],
+  "platform": "github",
+  "username": "dalr[bot]",
+  "onboarding": false,
+  "requireConfig": "optional",
+  "gitAuthor": "dalr[bot] <23340663+mdallaire@users.noreply.github.com>",
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "suppressNotifications": ["prIgnoreNotification"],
+  "commitBodyTable": true,
+  "packageRules": [
+    {
+      "description": "Auto-merge Github Actions",
+      "matchDatasources": ["github-tags"],
+      "automerge": true,
+      "automergeType": "branch",
+      "ignoreTests": true,
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackagePatterns": ["renovatebot/github-action"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest"],
+      "commitMessagePrefix": "📣 "
+    }
+  ]
+}
