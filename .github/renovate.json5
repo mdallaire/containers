@@ -8,10 +8,10 @@
     ":automergeDigest"
   ],
   "platform": "github",
-  "username": "Roboto-Le-Robot",
+  "username": "roboto-le-robot",
   "onboarding": false,
   "requireConfig": "optional",
-  "gitAuthor": "Roboto-Le-Robot <23340663+mdallaire@users.noreply.github.com>",
+  "gitAuthor": "roboto-le-robot <23340663+mdallaire@users.noreply.github.com>",
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "suppressNotifications": ["prIgnoreNotification"],
   "commitBodyTable": true,
