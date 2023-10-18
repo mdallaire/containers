@@ -1,4 +1,4 @@
-FROM --platform=$TARGETPLATFORM FROM ghcr.io/mdallaire/ubuntu:jammy-20231004@sha256:9e3f92b91dee0506bb3e5787ce1eb5bdafe25da40fc7343fa1938fd2ab1b49ce
+FROM --platform=$TARGETPLATFORM ghcr.io/mdallaire/ubuntu:jammy-20231004@sha256:9e3f92b91dee0506bb3e5787ce1eb5bdafe25da40fc7343fa1938fd2ab1b49ce
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
