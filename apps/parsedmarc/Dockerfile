@@ -5,7 +5,7 @@ ARG VERSION
 ARG CHANNEL
 
 #hadolint ignore=DL3018
-RUN apk add --no-cache libxml2-dev libxslt-dev py3-pip \
+RUN apk add --no-cache build-base libxml2-dev libxslt-dev py3-pip \
     && pip install parsedmarc==${VERSION}
 
 USER kah
