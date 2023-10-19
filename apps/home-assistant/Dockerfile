@@ -73,8 +73,13 @@ RUN \
         pip \
         pyparsing \
         setuptools \
-        wheel \
-        pyproj
+        wheel
+
+#hadolint ignore=DL3018,DL3013,DL3059
+# pyproj for https://github.com/mdallaire/domo-quebec/blob/main/msp/msp-geojson-converter.py
+RUN apk add --no-cache --virtual=.build-deps proj proj-dev proj-util && \
+    pip install --upgrade pyproj
+
 #hadolint ignore=DL3018,DL3013,DL3059,DL4006
 RUN \
     curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar.gz" \
@@ -92,7 +97,6 @@ RUN \
     pip install --find-links "${ALPINE_WHEELS}" --find-links "${HOMEASSISTANT_WHEELS}" \
         "${NUMPY_VERSION}" \
     && \
-
     case "${TARGETPLATFORM}" in \
         'linux/amd64') \
             export ARCH='amd64'; \
