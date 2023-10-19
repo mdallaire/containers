@@ -76,9 +76,10 @@ Container | Channel | Image | Latest Tags
 [emby]() | stable | ghcr.io/mdallaire/emby |
 [home-assistant](https://github.com/mdallaire/containers/pkgs/container/home-assistant) | stable | ghcr.io/mdallaire/home-assistant |![2023.10.3](https://img.shields.io/badge/2023.10.3-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [kubernetes-kubectl](https://github.com/mdallaire/containers/pkgs/container/kubernetes-kubectl) | kubectl | ghcr.io/mdallaire/kubernetes-kubectl |![1.28.3](https://img.shields.io/badge/1.28.3-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
-[parsedmarc]() | stable | ghcr.io/mdallaire/parsedmarc |
+[parsedmarc](https://github.com/mdallaire/containers/pkgs/container/parsedmarc) | stable | ghcr.io/mdallaire/parsedmarc |![8](https://img.shields.io/badge/8-blue?style=flat-square) ![8.6](https://img.shields.io/badge/8.6-blue?style=flat-square) ![8.6.4](https://img.shields.io/badge/8.6.4-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [postgres-init](https://github.com/mdallaire/containers/pkgs/container/postgres-init) | stable | ghcr.io/mdallaire/postgres-init |![14](https://img.shields.io/badge/14-blue?style=flat-square) ![14.9](https://img.shields.io/badge/14.9-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
-[tt-rss](https://github.com/mdallaire/containers/pkgs/container/tt-rss) | stable | ghcr.io/mdallaire/tt-rss |![2.0.9337](https://img.shields.io/badge/2.0.9337-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
+[tt-rss](https://github.com/mdallaire/containers/pkgs/container/tt-rss) | stable | ghcr.io/mdallaire/tt-rss |![2.0.9338](https://img.shields.io/badge/2.0.9338-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
+[waterfurnace-aurora]() | waterfurnace-aurora | ghcr.io/mdallaire/waterfurnace-aurora |
 
 
 ## Contributing
