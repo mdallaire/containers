@@ -57,6 +57,7 @@ RUN \
         cups-dev \
         eudev-dev \
         ffmpeg-dev \
+        gcc \
         glib-dev \
         jpeg-dev \
         libffi-dev \
