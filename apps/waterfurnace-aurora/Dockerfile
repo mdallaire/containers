@@ -8,9 +8,16 @@ ENV TARGETARCH=${TARGETARCH:-amd64}
 
 #hadolint ignore=DL3018
 RUN apk add --no-cache ca-certificates openssl ruby
+
+#hadolint ignore=DL3018
+RUN \
+    apk add --no-cache --virtual=.build-deps \
+        ruby-dev
 #hadolint ignore=DL3018,DL3059
 RUN \
     gem install waterfurnace_aurora -v ${VERSION}
+
+RUN apk del --purge .build-deps
 
 ENV TTY=/dev/ttyUSB0
 ENV MQTT=mqtt://localhost
