@@ -12,7 +12,9 @@ RUN apk add --no-cache ca-certificates openssl ruby
 #hadolint ignore=DL3018
 RUN \
     apk add --no-cache --virtual=.build-deps \
-        ruby-dev
+        ruby-dev \
+        ruby-ffi \
+        build-base
 #hadolint ignore=DL3018,DL3059
 RUN \
     gem install waterfurnace_aurora -v ${VERSION}
