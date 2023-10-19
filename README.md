@@ -73,7 +73,7 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 
 Container | Channel | Image | Latest Tags
 --- | --- | --- | ---
-[emby]() | stable | ghcr.io/mdallaire/emby |
+[emby](https://github.com/mdallaire/containers/pkgs/container/emby) | stable | ghcr.io/mdallaire/emby |![4](https://img.shields.io/badge/4-blue?style=flat-square) ![4.7](https://img.shields.io/badge/4.7-blue?style=flat-square) ![4.7.14](https://img.shields.io/badge/4.7.14-blue?style=flat-square) ![4.7.14.0](https://img.shields.io/badge/4.7.14.0-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [home-assistant](https://github.com/mdallaire/containers/pkgs/container/home-assistant) | stable | ghcr.io/mdallaire/home-assistant |![2023.10.3](https://img.shields.io/badge/2023.10.3-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [kubernetes-kubectl](https://github.com/mdallaire/containers/pkgs/container/kubernetes-kubectl) | kubectl | ghcr.io/mdallaire/kubernetes-kubectl |![1.28.3](https://img.shields.io/badge/1.28.3-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [parsedmarc](https://github.com/mdallaire/containers/pkgs/container/parsedmarc) | stable | ghcr.io/mdallaire/parsedmarc |![8](https://img.shields.io/badge/8-blue?style=flat-square) ![8.6](https://img.shields.io/badge/8.6-blue?style=flat-square) ![8.6.4](https://img.shields.io/badge/8.6.4-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
