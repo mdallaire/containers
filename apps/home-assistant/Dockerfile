@@ -57,7 +57,6 @@ RUN \
         cups-dev \
         eudev-dev \
         ffmpeg-dev \
-        gcc \
         glib-dev \
         jpeg-dev \
         libffi-dev \
@@ -75,11 +74,6 @@ RUN \
         pyparsing \
         setuptools \
         wheel
-
-#hadolint ignore=DL3018,DL3013,DL3059
-# pyproj for https://github.com/mdallaire/domo-quebec/blob/main/msp/msp-geojson-converter.py
-RUN apk add --no-cache --virtual=.build-deps proj proj-dev proj-util && \
-    pip install --upgrade pyproj
 
 #hadolint ignore=DL3018,DL3013,DL3059,DL4006
 RUN \
