@@ -1,4 +1,4 @@
 ---
 file:
-  /usr/local/bundle/bin/aurora_mqtt_bridge:
+  /usr/bin/aurora_mqtt_bridge:
     exists: true
