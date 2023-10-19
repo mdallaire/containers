@@ -1,0 +1,17 @@
+{
+  "app": "waterfurnace-aurora",
+  "base": false,
+  "channels": [
+    {
+      "name": "waterfurnace-aurora",
+      "platforms": [
+        "linux/amd64"
+      ],
+      "stable": true,
+      "tests": {
+        "enabled": true,
+        "type": "cli"
+      }
+    }
+  ]
+}
