@@ -7,13 +7,12 @@ ARG TARGETARCH
 ENV TARGETARCH=${TARGETARCH:-amd64}
 
 #hadolint ignore=DL3018
-RUN apk add --no-cache ca-certificates openssl ruby
+RUN apk add --no-cache ca-certificates openssl ruby ruby-ffi
 
 #hadolint ignore=DL3018
 RUN \
     apk add --no-cache --virtual=.build-deps \
         ruby-dev \
-        ruby-ffi \
         build-base
 #hadolint ignore=DL3018,DL3059
 RUN \
