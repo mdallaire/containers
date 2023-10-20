@@ -23,6 +23,6 @@ RUN apk del --purge .build-deps
 ENV TTY=/dev/ttyUSB0
 ENV MQTT=mqtt://localhost
 WORKDIR /usr/bin/
-CMD [ "ruby aurora_mqtt_bridge $TTY $MQTT" ]
+CMD [ "ruby", "aurora_mqtt_bridge", "$TTY", "$MQTT" ]
 
 LABEL org.opencontainers.image.source="https://github.com/ccutrer/waterfurnace_aurora"

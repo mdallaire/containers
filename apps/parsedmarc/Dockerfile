@@ -10,6 +10,6 @@ RUN apk add --no-cache build-base libxml2-dev libxslt-dev py3-pip \
 
 USER kah
 
-CMD ["parsedmarc -c /parsedmarc/parsedmarc.ini"]
+CMD ["parsedmarc", "-c", "/config/parsedmarc.ini"]
 
 LABEL org.opencontainers.image.source="https://github.com/domainaware/parsedmarc"
