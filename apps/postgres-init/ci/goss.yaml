@@ -1,4 +1,4 @@
 ---
 file:
-  /usr/libexec/postgresql14/psql:
+  /usr/libexec/postgresql16/psql:
     exists: true
