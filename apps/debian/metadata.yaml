@@ -1,0 +1,10 @@
+app: debian
+base: true
+channels:
+  - name: "bookworm"
+    platforms:
+      - linux/amd64
+    stable: true
+    tests:
+      enabled: true
+      type: cli
