@@ -1,0 +1,4 @@
+---
+file:
+  /usr/bin/hydroqc2mqtt:
+    exists: true
