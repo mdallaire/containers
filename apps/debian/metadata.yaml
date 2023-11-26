@@ -8,3 +8,10 @@ channels:
     tests:
       enabled: true
       type: cli
+  - name: "bookworm-slim"
+    platforms:
+      - linux/amd64
+    stable: true
+    tests:
+      enabled: true
+      type: cli
