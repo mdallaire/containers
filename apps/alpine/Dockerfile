@@ -51,7 +51,7 @@ RUN \
         util-linux         wget \
     && \
     # 264 kB
-    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.19/main unrar
+    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/main unrar
 
 #hadolint ignore=DL3018
 RUN \
