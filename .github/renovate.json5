@@ -8,7 +8,6 @@
     ":automergeDigest"
   ],
   "platform": "github",
-  "username": "roboto-le-robot[bot]",
   "onboarding": false,
   "requireConfig": "optional",
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
