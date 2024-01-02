@@ -6,7 +6,7 @@ to edit this file, instead edit its template at: ./github/scripts/templates/READ
 
 ## Credits
 
-Most of the logic and structure of this repo comes from the excellent [https://github.com/mdallaire/containers] and other forks of it.
+Most of the logic and structure of this repo comes from the excellent [https://github.com/onedr0p/containers] and other forks of it.
 
 ## Credits from the original repo
 A lot of inspiration and ideas are thanks to the hard work of [hotio.dev](https://hotio.dev/) and [linuxserver.io](https://www.linuxserver.io/) contributors.
