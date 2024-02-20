@@ -25,7 +25,7 @@
 
         - name: Setup CUE
           if: ${{ steps.filter.outputs.cue == 'true' }}
-          uses: cue-lang/setup-cue@v1.0.0
+          uses: cue-lang/setup-cue@v1.0.1
 
         # Run against all files to ensure they are tested if the cue schema is changed.
         - name: Validate image metadata
