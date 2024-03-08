@@ -1,4 +1,4 @@
-FROM ghcr.io/mdallaire/alpine:rolling@sha256:ac55ce02d3df3948e0927448dacf03d9991c51e44083d4ea51194430e2a0e1cb
+FROM ghcr.io/mdallaire/python-alpine:rolling@sha256:817fe2e95333be001237b6c82cf900bc9ac211f29e7c21a490337c77b29bcf48
 
 # https://github.com/linuxserver/docker-homeassistant
 # https://github.com/home-assistant/docker
