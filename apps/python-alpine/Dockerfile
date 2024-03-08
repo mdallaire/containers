@@ -18,7 +18,7 @@ RUN \
     && go install -ldflags="-s -w" github.com/drone/envsubst/cmd/envsubst@latest \
     && upx /go/bin/envsubst
 
-FROM public.ecr.aws/docker/library/alpine:${VERSION}
+FROM public.ecr.aws/docker/library/python:${VERSION}
 ARG VERSION
 ARG CHANNEL
 ARG TARGETPLATFORM
