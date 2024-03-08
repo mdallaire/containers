@@ -78,7 +78,7 @@ RUN \
 
 #hadolint ignore=DL3018,DL3013,DL3059,DL4006
 RUN \
-    curl -fsSL "https://github.com/home-assistant/core/archive/refs/tags/${VERSION}.tar.gz" \
+    curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar.gz" \
         | tar xzf - -C /tmp --strip-components=1 \
     && \
     mkdir -p /pip-packages \
