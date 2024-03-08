@@ -3,7 +3,7 @@ app: python-alpine
 base: true
 channels:
   - name: "3.12-alpine3.19"
-    platforms: ["linux/amd64", "linux/arm64"]
+    platforms: ["linux/amd64"]
     stable: true
     tests:
       enabled: true
