@@ -1,4 +1,4 @@
-FROM ghcr.io/mdallaire/python-alpine:rolling@sha256:817fe2e95333be001237b6c82cf900bc9ac211f29e7c21a490337c77b29bcf48
+FROM ghcr.io/mdallaire/alpine:rolling@sha256:ac55ce02d3df3948e0927448dacf03d9991c51e44083d4ea51194430e2a0e1cb
 
 # https://github.com/linuxserver/docker-homeassistant
 # https://github.com/home-assistant/docker
@@ -90,7 +90,8 @@ RUN \
     && \
     NUMPY_VERSION=$(grep "numpy" requirements_all.txt) \
     && \
-    pip install "${NUMPY_VERSION}" \
+    pip install --find-links "${ALPINE_WHEELS}" --find-links "${HOMEASSISTANT_WHEELS}" \
+        "${NUMPY_VERSION}" \
     && \
     case "${TARGETPLATFORM}" in \
         'linux/amd64') \
@@ -103,13 +104,17 @@ RUN \
     && \
     HOME_ASSISTANT_BASE=$(curl -fsSL "https://raw.githubusercontent.com/home-assistant/core/${VERSION}/build.yaml" | grep "${ARCH}: " | cut -d ":" -f3) \
     && \
-    pip install --requirement "https://raw.githubusercontent.com/home-assistant/docker/${HOME_ASSISTANT_BASE}/requirements.txt" \
+    pip install --no-index --only-binary=:all: --find-links "${ALPINE_WHEELS}" --find-links "${HOMEASSISTANT_WHEELS}" \
+        --requirement "https://raw.githubusercontent.com/home-assistant/docker/${HOME_ASSISTANT_BASE}/requirements.txt" \
     && \
-    pip install --requirement requirements_all.txt \
+    pip install --find-links "${ALPINE_WHEELS}" --find-links "${HOMEASSISTANT_WHEELS}" \
+        --requirement requirements_all.txt \
     && \
-    pip install homeassistant=="${VERSION}" \
+    pip install --only-binary=:all: --find-links "${ALPINE_WHEELS}" --find-links "${HOMEASSISTANT_WHEELS}" \
+        homeassistant=="${VERSION}" \
     && \
-    pip install pycups PySwitchbot pyproj\
+    pip install --find-links "${ALPINE_WHEELS}" --find-links "${HOMEASSISTANT_WHEELS}" \
+        pycups PySwitchbot \
     && \
     apk del --purge .build-deps \
     && \
