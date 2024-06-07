@@ -33,6 +33,7 @@ RUN \
         curl \
         eudev-libs \
         ffmpeg \
+        gcc \
         git \
         jq \
         libcap \
@@ -45,6 +46,9 @@ RUN \
         openssh-client \
         openssl \
         postgresql-libs \
+        proj \
+        proj-dev \
+        proj-util \
         socat \
         tiff \
         tzdata \
@@ -66,9 +70,9 @@ RUN \
         postgresql-dev \
         unixodbc-dev \
     && \
-    pip install uv \
-    && \
-    curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar.gz" \
+    pip install uv
+
+RUN    curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar.gz" \
         | tar xzf - -C /tmp --strip-components=1 \
     && \
     case "${TARGETPLATFORM}" in \
@@ -89,7 +93,9 @@ RUN \
         --requirement /tmp/requirements_all.txt \
     && \
     uv pip install --system --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
-        homeassistant=="${VERSION}" \
+        homeassistant=="${VERSION}"
+
+RUN uv pip install --system pyproj bs4 \
     && \
     apk del --purge .build-deps \
     && \
