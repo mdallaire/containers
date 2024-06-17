@@ -30,8 +30,14 @@ RUN \
 
 
 RUN \
-uv pip install --system weewx==${VERSION}
-
+uv pip install --system weewx==${VERSION} \
+    && \
+    uv pip install paho-mqtt \
+       python-cjson \
+       ujson \
+       ephem \
+       urllib3 \
+       influxdb
 
 COPY ./apps/weewx/entrypoint.sh /entrypoint.sh
 
