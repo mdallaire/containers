@@ -80,6 +80,7 @@ Container | Channel | Image | Latest Tags
 [postgres-init](https://github.com/mdallaire/containers/pkgs/container/postgres-init) | stable | ghcr.io/mdallaire/postgres-init |![15](https://img.shields.io/badge/15-blue?style=flat-square) ![15.7](https://img.shields.io/badge/15.7-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [tt-rss](https://github.com/mdallaire/containers/pkgs/container/tt-rss) | stable | ghcr.io/mdallaire/tt-rss |![2.0.9478](https://img.shields.io/badge/2.0.9478-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [waterfurnace-aurora](https://github.com/mdallaire/containers/pkgs/container/waterfurnace-aurora) | stable | ghcr.io/mdallaire/waterfurnace-aurora |![1.4.8](https://img.shields.io/badge/1.4.8-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
+[weewx](https://github.com/mdallaire/containers/pkgs/container/weewx) | stable | ghcr.io/mdallaire/weewx |![5](https://img.shields.io/badge/5-blue?style=flat-square) ![5.0](https://img.shields.io/badge/5.0-blue?style=flat-square) ![5.0.2](https://img.shields.io/badge/5.0.2-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 
 
 ## Contributing
