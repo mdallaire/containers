@@ -106,7 +106,6 @@ RUN uv pip install --system pyproj bs4 \
 
 COPY ./apps/home-assistant/entrypoint.sh /entrypoint.sh
 
-USER nobody:nogroup
 WORKDIR /config
 
 ENTRYPOINT ["/usr/bin/catatonit", "--"]
