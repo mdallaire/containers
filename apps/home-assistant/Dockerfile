@@ -46,6 +46,9 @@ RUN \
         openssh-client \
         openssl \
         postgresql-libs \
+        proj \
+        proj-dev \
+        proj-util \
         socat \
         tiff \
         tzdata \
@@ -92,7 +95,9 @@ RUN    curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar
     uv pip install --system --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
         homeassistant=="${VERSION}"
 
-RUN apk del --purge .build-deps \
+RUN uv pip install --system pyproj bs4 \
+    && \
+    apk del --purge .build-deps \
     && \
     rm -rf \
         /root/.cache \
