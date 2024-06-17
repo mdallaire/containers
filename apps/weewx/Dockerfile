@@ -34,7 +34,7 @@ RUN \
 uv pip install --system weewx==${VERSION} \
     && \
     uv pip install --system paho-mqtt \
-       python-cjson \
+       #python-cjson \
        ujson \
        ephem \
        urllib3 \
