@@ -46,9 +46,6 @@ RUN \
         openssh-client \
         openssl \
         postgresql-libs \
-        proj \
-        proj-dev \
-        proj-util \
         socat \
         tiff \
         tzdata \
@@ -68,6 +65,9 @@ RUN \
         libxml2-dev \
         libxslt-dev \
         postgresql-dev \
+        proj \
+        proj-dev \
+        proj-util \
         unixodbc-dev \
     && \
     pip install uv
