@@ -24,6 +24,7 @@ RUN \
     apk add --no-cache \
         catatonit \
         bash \
+        gcc \
         unzip \
     && \
     pip install uv
