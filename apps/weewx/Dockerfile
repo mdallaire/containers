@@ -32,7 +32,7 @@ RUN \
 RUN \
 uv pip install --system weewx==${VERSION} \
     && \
-    uv pip install paho-mqtt \
+    uv pip install --system paho-mqtt \
        python-cjson \
        ujson \
        ephem \
