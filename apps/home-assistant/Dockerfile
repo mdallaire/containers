@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.12-alpine
+FROM docker.io/library/python:3.12-alpine@sha256:90f7dfae6a8c3676647fdb0b7581e3a02b129b7fabcab21bcaf5e081a1eab452
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -105,6 +105,9 @@ RUN uv pip install --system pyproj bs4 \
         /tmp/*
 
 COPY ./apps/home-assistant/entrypoint.sh /entrypoint.sh
+
+USER nobody:nogroup
+WORKDIR /config
 
 ENTRYPOINT ["/usr/bin/catatonit", "--"]
 CMD ["/entrypoint.sh"]
