@@ -3,7 +3,7 @@ app: alpine
 base: true
 channels:
   - name: "3.19"
-    platforms: ["linux/amd64", "linux/arm64"]
+    platforms: ["linux/amd64"]
     stable: true
     tests:
       enabled: true
