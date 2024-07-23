@@ -15,9 +15,7 @@ ENV \
     HOME="/config"
 
 #hadolint ignore=DL3018
-RUN apk add --no-cache build-base libxml2-dev libxslt-dev py3-pip \
-    # TODO remove when PR is merged https://github.com/domainaware/parsedmarc/pull/466/files
-    && pip install msgraph-core==0.2.2 \
+RUN apk add --no-cache build-base rust libxml2-dev libxslt-dev py3-pip \
     && pip install parsedmarc==${VERSION}
 
 USER kah
