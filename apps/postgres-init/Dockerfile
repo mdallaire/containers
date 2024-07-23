@@ -1,4 +1,4 @@
-FROM ghcr.io/mdallaire/alpine:rolling@sha256:e00f1d56a521c212983e3448c564945bacea8a2944f30c1bbb01e085794db12d
+FROM ghcr.io/mdallaire/alpine:rolling@sha256:3c12a1ac409f41d0a4b9f5012456c78ab4a7523a00046617155a2cd4345dbb38
 
 ARG TARGETPLATFORM
 ARG VERSION
