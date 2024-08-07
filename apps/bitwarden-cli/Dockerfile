@@ -10,6 +10,6 @@ RUN curl -LO "https://github.com/bitwarden/clients/releases/download/cli-v{$VERS
 
 RUN rm *.zip
 
-COPY entrypoint.sh /
+COPY ./apps/bitwarden-cli/entrypoint.sh /
 
 CMD ["/entrypoint.sh"]
