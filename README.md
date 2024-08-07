@@ -73,6 +73,7 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 
 Container | Channel | Image | Latest Tags
 --- | --- | --- | ---
+[bitwarden-cli](https://github.com/mdallaire/containers/pkgs/container/bitwarden-cli) | stable | ghcr.io/mdallaire/bitwarden-cli |![2024](https://img.shields.io/badge/2024-blue?style=flat-square) ![2024.7](https://img.shields.io/badge/2024.7-blue?style=flat-square) ![2024.7.2](https://img.shields.io/badge/2024.7.2-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [emby](https://github.com/mdallaire/containers/pkgs/container/emby) | stable | ghcr.io/mdallaire/emby |![4](https://img.shields.io/badge/4-blue?style=flat-square) ![4.8](https://img.shields.io/badge/4.8-blue?style=flat-square) ![4.8.8](https://img.shields.io/badge/4.8.8-blue?style=flat-square) ![4.8.8.0](https://img.shields.io/badge/4.8.8.0-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [home-assistant](https://github.com/mdallaire/containers/pkgs/container/home-assistant) | stable | ghcr.io/mdallaire/home-assistant |![2024.7.4](https://img.shields.io/badge/2024.7.4-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [kubernetes-kubectl](https://github.com/mdallaire/containers/pkgs/container/kubernetes-kubectl) | kubectl | ghcr.io/mdallaire/kubernetes-kubectl |![1.30.3](https://img.shields.io/badge/1.30.3-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
