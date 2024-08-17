@@ -1,4 +1,4 @@
-FROM ghcr.io/mdallaire/ubuntu:jammy-20240530@sha256:f9f46e1f71409ead6699024312f171e712b43e357654e63eb6c352c6460fe1ef as builder
+FROM ghcr.io/mdallaire/ubuntu:jammy-20240808@sha256:3be34ea4652f926e41c9d2cc3560315ae916f06c2aedb38735fba2f7306a70a2 as builder
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -36,7 +36,7 @@ RUN \
         /tmp/opt/emby-server/etc \
         /tmp/opt/emby-server/extra/lib/*
 
-FROM ghcr.io/mdallaire/ubuntu:jammy-20240530@sha256:f9f46e1f71409ead6699024312f171e712b43e357654e63eb6c352c6460fe1ef
+FROM ghcr.io/mdallaire/ubuntu:jammy-20240808@sha256:3be34ea4652f926e41c9d2cc3560315ae916f06c2aedb38735fba2f7306a70a2
 
 ARG TARGETPLATFORM
 ARG VERSION
