@@ -35,6 +35,7 @@ RUN \
         ffmpeg \
         gcc \
         git \
+        go2rtc \
         jq \
         libcap \
         libturbojpeg \
