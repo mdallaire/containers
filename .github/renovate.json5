@@ -27,6 +27,10 @@
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
       "commitMessagePrefix": "📣 "
+    },
+    {
+      "matchPaths": ["apps/waterfurnace-aurora/**"],
+      "enabled": false
     }
   ]
 }
