@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.12-alpine@sha256:98a1fdb8d0594f4743b7cfcff4e31f32dd3caf5c049c8697f89949212427752c
+FROM docker.io/library/python:3.12-alpine@sha256:e0e4d3db19333a970e7acfdcb8863efe065be6c3038ef5018694f98162bffec0
 
 ARG TARGETPLATFORM
 ARG VERSION
