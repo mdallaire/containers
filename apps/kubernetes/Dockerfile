@@ -1,4 +1,4 @@
-FROM docker.io/library/alpine:latest@sha256:beefdbd8a1da6d2915566fde36db9db0b524eb737fc57cd1367effd16dc0d06d
+FROM docker.io/library/alpine:3.20
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -13,7 +13,6 @@ RUN \
     curl -fsSL -o /usr/local/bin/kubectl "https://dl.k8s.io/release/v${VERSION}/bin/linux/${TARGETARCH}/kubectl" \
     && chmod +x /usr/local/bin/kubectl
 
-USER kah
 CMD [ "/usr/local/bin/kubectl" ]
 
 LABEL org.opencontainers.image.source="https://github.com/kubernetes/kubectl"
