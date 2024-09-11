@@ -5,7 +5,7 @@ ARG VERSION
 ARG CHANNEL
 
 #hadolint ignore=DL3018
-RUN apk add --no-cache curl ca-certificates postgresql15-client~"${VERSION}"
+RUN apk add --no-cache curl ca-certificates postgresql16-client~"${VERSION}"
 
 COPY ./apps/postgres-init/entrypoint.sh /entrypoint.sh
 
