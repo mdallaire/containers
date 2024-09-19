@@ -1,5 +1,5 @@
 ARG VERSION
-FROM public.ecr.aws/docker/library/alpine:3.20 as builder
+FROM public.ecr.aws/docker/library/alpine:3.20 AS builder
 ARG VERSION
 ARG TARGETOS
 ARG TARGETARCH
@@ -55,11 +55,7 @@ RUN \
 
 #hadolint ignore=DL3018
 RUN \
-    addgroup -S kah --gid 568 \
-        && adduser -S kah -G kah --uid 568 \
-    && \
     mkdir -p /config \
-    && chown -R kah:kah /config \
     && chmod -R 775 /config \
     && printf "umask %d\n" "${UMASK}" > /etc/profile.d/umask.sh \
     && ln -s /usr/bin/vi   /usr/local/bin/vi \
@@ -70,6 +66,6 @@ RUN \
     && rm -rf /tmp/*
 
 VOLUME ["/config"]
-COPY ./apps/alpine/scripts /scripts
+COPY ./apps/toolbox/scripts /scripts
 COPY --from=builder /go/bin/envsubst /usr/local/bin/envsubst
 ENTRYPOINT ["/sbin/tini", "--"]
