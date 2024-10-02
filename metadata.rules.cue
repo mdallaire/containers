@@ -2,6 +2,7 @@
     app:  #AcceptableAppName
     base: bool
     semantic_versioning?: bool
+    semver?: bool
     channels: [...#Channels]
 }
 
