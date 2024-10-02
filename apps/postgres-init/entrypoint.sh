@@ -2,6 +2,7 @@
 
 # This is most commonly set to the user 'postgres'
 export INIT_POSTGRES_SUPER_USER=${INIT_POSTGRES_SUPER_USER:-postgres}
+export INIT_POSTGRES_PORT=${INIT_POSTGRES_PORT:-5432}
 
 if [[ -z "${INIT_POSTGRES_HOST}"       ||
       -z "${INIT_POSTGRES_SUPER_PASS}" ||
@@ -22,9 +23,10 @@ fi
 export PGHOST="${INIT_POSTGRES_HOST}"
 export PGUSER="${INIT_POSTGRES_SUPER_USER}"
 export PGPASSWORD="${INIT_POSTGRES_SUPER_PASS}"
+export PGPORT="${INIT_POSTGRES_PORT}"
 
 until pg_isready; do
-    printf "\e[1;32m%-6s\e[m\n" "Waiting for Host '${PGHOST}' ..."
+    printf "\e[1;32m%-6s\e[m\n" "Waiting for Host '${PGHOST}' on port '${PGPORT}' ..."
     sleep 1
 done
 
@@ -53,6 +55,14 @@ for dbname in ${INIT_POSTGRES_DBNAME}; do
     if [[ -z "${database_exists}" ]]; then
         printf "\e[1;32m%-6s\e[m\n" "Create Database ${dbname} ..."
         createdb --owner "${INIT_POSTGRES_USER}" "${dbname}"
+        database_init_file="/initdb/${dbname}.sql"
+        if [[ -f "${database_init_file}" ]]; then
+            printf "\e[1;32m%-6s\e[m\n" "Initialize Database ..."
+            psql \
+                --dbname "${dbname}" \
+                --echo-all \
+                --file "${database_init_file}"
+        fi
     fi
     printf "\e[1;32m%-6s\e[m\n" "Update User Privileges on Database ..."
     psql --command "grant all privileges on database \"${dbname}\" to \"${INIT_POSTGRES_USER}\";"
