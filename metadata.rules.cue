@@ -1,6 +1,6 @@
 #Spec: {
     app:  #AcceptableAppName
-    base: bool
+    base?: bool
     semantic_versioning?: bool
     semver?: bool
     channels: [...#Channels]
