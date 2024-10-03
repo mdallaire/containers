@@ -71,9 +71,6 @@ if __name__ == "__main__":
                 if gh_data is not None:
                     image["html_url"] = f"https://github.com/{repo_name}/pkgs/container/{name}"
                     image["tags"] = sorted(gh_data["metadata"]["container"]["tags"])
-                if meta["base"]:
-                    base_images.append(image)
-                else:
                     app_images.append(image)
 
     template = env.get_template("README.md.j2")
