@@ -25,29 +25,6 @@ _A Collection of Container Images Optimized for Kubernetes_
 
 </div>
 
-Welcome to our container images, if looking for a container start by [browsing the container packages](https://github.com/mdallaire?tab=packages&repo_name=containers).
-
-## Mission statement
-
-The goal of this project is to support [semantically versioned](https://semver.org/), [rootless](https://rootlesscontaine.rs/), and [multiple architecture](https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/) containers for various applications.
-
-We also try to adhere to a [KISS principle](https://en.wikipedia.org/wiki/KISS_principle), logging to stdout, [one process per container](https://testdriven.io/tips/59de3279-4a2d-4556-9cd0-b444249ed31e/), no [s6-overlay](https://github.com/just-containers/s6-overlay) and all images are built on top of [Alpine](https://hub.docker.com/_/alpine) or [Ubuntu](https://hub.docker.com/_/ubuntu).
-
-## Tag immutability
-
-The containers built here do not use immutable tags, as least not in the more common way you have seen from [linuxserver.io](https://fleet.linuxserver.io/) or [Bitnami](https://bitnami.com/stacks/containers).
-
-We do take a similar approach but instead of appending a `-ls69` or `-r420` prefix to the tag we instead insist on pinning to the sha256 digest of the image, while this is not as pretty it is just as functional in making the images immutable.
-
-| Container                                          | Immutable |
-|----------------------------------------------------|-----------|
-| `ghcr.io/mdallaire/sonarr:rolling`                   | ❌         |
-| `ghcr.io/mdallaire/sonarr:3.0.8.1507`                | ❌         |
-| `ghcr.io/mdallaire/sonarr:rolling@sha256:8053...`    | ✅         |
-| `ghcr.io/mdallaire/sonarr:3.0.8.1507@sha256:8053...` | ✅         |
-
-_If pinning an image to the sha256 digest, tools like [Renovate](https://github.com/renovatebot/renovate) support updating the container on a digest or application version change._
-
 ## Passing arguments to a application
 
 Some applications do not support defining configuration via environment variables and instead only allow certain config to be set in the command line arguments for the app. To circumvent this, for applications that have an `entrypoint.sh` read below.
@@ -74,11 +51,13 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 Container | Channel | Image | Latest Tags
 --- | --- | --- | ---
 [bitwarden-cli](https://github.com/mdallaire/containers/pkgs/container/bitwarden-cli) | stable | ghcr.io/mdallaire/bitwarden-cli |![2024](https://img.shields.io/badge/2024-blue?style=flat-square) ![2024.9](https://img.shields.io/badge/2024.9-blue?style=flat-square) ![2024.9.0](https://img.shields.io/badge/2024.9.0-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
-[home-assistant](https://github.com/mdallaire/containers/pkgs/container/home-assistant) | stable | ghcr.io/mdallaire/home-assistant |![2024.9.3](https://img.shields.io/badge/2024.9.3-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
+[home-assistant](https://github.com/mdallaire/containers/pkgs/container/home-assistant) | stable | ghcr.io/mdallaire/home-assistant |![2024.10.0](https://img.shields.io/badge/2024.10.0-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [kubernetes-kubectl](https://github.com/mdallaire/containers/pkgs/container/kubernetes-kubectl) | kubectl | ghcr.io/mdallaire/kubernetes-kubectl |![1.31.1](https://img.shields.io/badge/1.31.1-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
-[parsedmarc](https://github.com/mdallaire/containers/pkgs/container/parsedmarc) | stable | ghcr.io/mdallaire/parsedmarc |![8](https://img.shields.io/badge/8-blue?style=flat-square) ![8.15](https://img.shields.io/badge/8.15-blue?style=flat-square) ![8.15.0](https://img.shields.io/badge/8.15.0-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
+[parsedmarc](https://github.com/mdallaire/containers/pkgs/container/parsedmarc) | stable | ghcr.io/mdallaire/parsedmarc |![8](https://img.shields.io/badge/8-blue?style=flat-square) ![8.15](https://img.shields.io/badge/8.15-blue?style=flat-square) ![8.15.1](https://img.shields.io/badge/8.15.1-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [postgres-init](https://github.com/mdallaire/containers/pkgs/container/postgres-init) | stable | ghcr.io/mdallaire/postgres-init |![16](https://img.shields.io/badge/16-blue?style=flat-square) ![16.3](https://img.shields.io/badge/16.3-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
+[toolbox](https://github.com/mdallaire/containers/pkgs/container/toolbox) | 3.20 | ghcr.io/mdallaire/toolbox |![3.20.3](https://img.shields.io/badge/3.20.3-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [tt-rss](https://github.com/mdallaire/containers/pkgs/container/tt-rss) | stable | ghcr.io/mdallaire/tt-rss |![2.0.9526](https://img.shields.io/badge/2.0.9526-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
+[ubuntu](https://github.com/mdallaire/containers/pkgs/container/ubuntu) | jammy | ghcr.io/mdallaire/ubuntu |![jammy-20240911.1](https://img.shields.io/badge/jammy--20240911.1-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [waterfurnace-aurora](https://github.com/mdallaire/containers/pkgs/container/waterfurnace-aurora) | stable | ghcr.io/mdallaire/waterfurnace-aurora |![1.4.8](https://img.shields.io/badge/1.4.8-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 [weewx](https://github.com/mdallaire/containers/pkgs/container/weewx) | stable | ghcr.io/mdallaire/weewx |![5](https://img.shields.io/badge/5-blue?style=flat-square) ![5.1](https://img.shields.io/badge/5.1-blue?style=flat-square) ![5.1.0](https://img.shields.io/badge/5.1.0-blue?style=flat-square) ![rolling](https://img.shields.io/badge/rolling-blue?style=flat-square)
 
@@ -96,21 +75,6 @@ Container | Channel | Image | Latest Tags
     ```ruby
     task APP=sonarr CHANNEL=main test
     ```
-
-### Automated tags
-
-Here's an example of how tags are created in the GitHub workflows, be careful with `metadata.json` as it does affect the outcome of how the tags will be created when the application is built.
-
-| Application | Channel   | Stable  | Base    | Generated Tag               |
-|-------------|-----------|---------|---------|-----------------------------|
-| `ubuntu`    | `focal`   | `true`  | `true`  | `ubuntu:focal-rolling`      |
-| `ubuntu`    | `focal`   | `true`  | `true`  | `ubuntu:focal-19880312`     |
-| `alpine`    | `3.16`    | `true`  | `true`  | `alpine:rolling`            |
-| `alpine`    | `3.16`    | `true`  | `true`  | `alpine:3.16.0`             |
-| `sonarr`    | `develop` | `false` | `false` | `sonarr-develop:3.0.8.1538` |
-| `sonarr`    | `develop` | `false` | `false` | `sonarr-develop:rolling`    |
-| `sonarr`    | `main`    | `true`  | `false` | `sonarr:3.0.8.1507`         |
-| `sonarr`    | `main`    | `true`  | `false` | `sonarr:rolling`            |
 
 ## Deprecations
 
