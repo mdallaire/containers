@@ -101,8 +101,6 @@ RUN uv pip install pyproj bs4 \
     && \
     apk del --purge .build-deps \
     && \
-    pip uninstall --yes uv \
-    && \
     rm -rf \
         /root/.cache \
         /root/.cargo \
