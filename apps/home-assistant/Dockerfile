@@ -88,18 +88,20 @@ RUN    curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar
     && \
     HOME_ASSISTANT_BASE=$(curl -fsSL "https://raw.githubusercontent.com/home-assistant/core/${VERSION}/build.yaml" | grep "${ARCH}: " | cut -d ":" -f3) \
     && \
-    uv pip install --system --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
+    uv pip install --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
         --requirement "https://raw.githubusercontent.com/home-assistant/docker/${HOME_ASSISTANT_BASE}/requirements.txt" \
     && \
-    uv pip install --system --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
+    uv pip install --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
         --requirement /tmp/requirements_all.txt \
     && \
-    uv pip install --system --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
+    uv pip install --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
         homeassistant=="${VERSION}"
 
-RUN uv pip install --system pyproj bs4 \
+RUN uv pip install pyproj bs4 \
     && \
     apk del --purge .build-deps \
+    && \
+    pip uninstall --yes uv \
     && \
     rm -rf \
         /root/.cache \
