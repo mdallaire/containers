@@ -1,8 +1,9 @@
 ---
-app: alpine
-base: true
+app: parsedmarc
+base: false
+semantic_versioning: true
 channels:
-  - name: "3.20"
+  - name: stable
     platforms: ["linux/amd64"]
     stable: true
     tests:

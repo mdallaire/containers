@@ -45,22 +45,14 @@ RUN \
         jq                 moreutils     nano \
         # 76 kB
         pv \
-        # 36 kB            # 3.3 MB      # 320 kB
-        tini               tzdata        unzip \
+        # 36 kB            # 3.3 MB
+        tini               tzdata        \
         # 16 kB            # 480 kB
         util-linux         wget \
-    && \
-    # 264 kB
-    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/main unrar
 
 #hadolint ignore=DL3018
 RUN \
-    addgroup -S kah --gid 568 \
-        && adduser -S kah -G kah --uid 568 \
-    && \
     mkdir -p /config \
-    && chown -R kah:kah /config \
-    && chmod -R 775 /config \
     && printf "/bin/bash /scripts/greeting.sh\n" > /etc/profile.d/greeting.sh \
     && printf "umask %d\n" "${UMASK}" > /etc/profile.d/umask.sh \
     && ln -s /usr/bin/vi   /usr/local/bin/vi \
