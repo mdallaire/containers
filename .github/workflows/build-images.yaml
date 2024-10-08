@@ -1,4 +1,5 @@
 ---
+  # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
   name: "Image Build"
 
   on:
@@ -7,11 +8,11 @@
         appsToBuild:
           required: false
           type: string
-          default: ''
+          default: ""
         channelsToBuild:
           required: false
           type: string
-          default: ''
+          default: ""
         pushImages:
           required: false
           default: false
@@ -42,7 +43,7 @@
       steps:
         - name: Lowercase repository owner
           shell: bash
-          run: echo "LOWERCASE_REPO_OWNER=${GITHUB_REPOSITORY_OWNER,,}" >> "${GITHUB_ENV}"
+          run: echo "LOWERCASE_REPO_OWNER=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
 
         - name: Generate Token
           uses: actions/create-github-app-token@v1
@@ -64,7 +65,7 @@
 
         - name: Install Python Requirements
           shell: bash
-          run: pip install -r ./.github/scripts/requirements.txt && pip freeze
+          run: pip install --requirement requirements.txt && pip freeze
 
         - name: Prepare Matrices
           id: prepare-matrices
@@ -73,13 +74,13 @@
           shell: bash
           run: |
             if [[ -z "${{ inputs.appsToBuild }}" ]]; then
-                matrices=$(python ./.github/scripts/prepare-matrices.py "all" "${{ inputs.pushImages }}" "${{ inputs.force }}")
+                matrices=$(python ./scripts/prepare-matrices.py "all" "${{ inputs.pushImages }}" "${{ inputs.force }}")
             else
-              if [[ -z "${{ inputs.channelsToBuild }}" ]]; then
-                matrices=$(python ./.github/scripts/prepare-matrices.py "${{ inputs.appsToBuild }}" "${{ inputs.pushImages }}" "${{ inputs.force }}")
-              else
-                matrices=$(python ./.github/scripts/prepare-matrices.py "${{ inputs.appsToBuild }}" "${{ inputs.pushImages }}" "${{ inputs.force }}" "${{ inputs.channelsToBuild }}")
-              fi
+                if [[ -z "${{ inputs.channelsToBuild }}" ]]; then
+                    matrices=$(python ./scripts/prepare-matrices.py "${{ inputs.appsToBuild }}" "${{ inputs.pushImages }}" "${{ inputs.force }}")
+                else
+                    matrices=$(python ./scripts/prepare-matrices.py "${{ inputs.appsToBuild }}" "${{ inputs.pushImages }}" "${{ inputs.force }}" "${{ inputs.channelsToBuild }}")
+                fi
             fi
             echo "matrices=${matrices}" >> $GITHUB_OUTPUT
             echo "${matrices}"
@@ -92,7 +93,8 @@
       strategy:
         fail-fast: false
         matrix:
-          image: ["${{ fromJSON(needs.prepare.outputs.matrices).imagePlatforms }}"]
+          image:
+            ["${{ fromJSON(needs.prepare.outputs.matrices).imagePlatforms }}"]
       permissions:
         contents: read
         packages: write
@@ -107,6 +109,7 @@
             cat << EOF
             ${{ toJSON(matrix.image)}}
             EOF
+
         - name: Validate Matrix Input
           shell: bash
           run: |
@@ -148,7 +151,6 @@
           uses: actions/checkout@v4
           with:
             token: "${{ steps.app-token.outputs.token }}"
-            fetch-depth: 1
 
         - name: Setup Docker Buildx
           uses: docker/setup-buildx-action@v3
@@ -198,7 +200,6 @@
             labels: |-
               org.opencontainers.image.title=${{ matrix.image.name }}
               org.opencontainers.image.url=https://ghcr.io/${{ env.LOWERCASE_REPO_OWNER }}/${{ matrix.image.name }}
-              org.opencontainers.image.source=https://github.com/${{ env.LOWERCASE_REPO_OWNER }}/containers
               org.opencontainers.image.version=${{ matrix.image.version }}
               org.opencontainers.image.revision=${{ github.sha }}
               org.opencontainers.image.vendor=${{ env.LOWERCASE_REPO_OWNER }}
@@ -235,7 +236,7 @@
           if: ${{ inputs.pushImages}}
           uses: actions/upload-artifact@v4
           with:
-            name: ${{ matrix.image.name }}
+            name: ${{ matrix.image.name }}-${{ matrix.image.target_os }}-${{ matrix.image.target_arch }}
             path: /tmp/${{ matrix.image.name }}/*
             if-no-files-found: error
             retention-days: 1
@@ -254,12 +255,13 @@
       steps:
         - name: Lowercase repository owner
           shell: bash
-          run: echo "LOWERCASE_REPO_OWNER=${GITHUB_REPOSITORY_OWNER,,}" >> "${GITHUB_ENV}"
+          run: echo "LOWERCASE_REPO_OWNER=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
 
         - name: Download Digests
           uses: actions/download-artifact@v4
           with:
-            name: ${{ matrix.image.name }}
+            pattern: "${{ matrix.image.name }}-{linux,darwin}-{amd64,arm64}"
+            merge-multiple: true
             path: /tmp/${{ matrix.image.name }}
 
         - name: Ensure all platforms were built
