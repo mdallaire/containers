@@ -1,5 +1,5 @@
 ARG VERSION
-FROM public.ecr.aws/docker/library/python:3.12-alpine3.19 as builder
+FROM public.ecr.aws/docker/library/python:3.13-alpine3.19 as builder
 ARG VERSION
 ARG TARGETOS
 ARG TARGETARCH
