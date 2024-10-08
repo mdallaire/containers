@@ -1,4 +1,4 @@
-FROM ghcr.io/mdallaire/alpine:rolling@sha256:218e3d04a015ef478949af4476f46ea42f128d7e2bfa7c8113427a6cd83addbb
+FROM docker.io/library/ruby:3.2.5-alpine3.20@sha256:37f546957703c9055fb2ae8c017513bc674d27792f9babc15d8ab6023325b55f
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -7,7 +7,7 @@ ARG TARGETARCH
 ENV TARGETARCH=${TARGETARCH:-amd64}
 
 #hadolint ignore=DL3018
-RUN apk add --no-cache ca-certificates openssl ruby ruby-ffi
+RUN apk add --no-cache ca-certificates bash openssl ruby ruby-ffi
 
 #hadolint ignore=DL3018
 RUN \
