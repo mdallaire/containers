@@ -22,7 +22,7 @@ RUN apk del --purge .build-deps
 
 ENV TTY=/dev/ttyUSB0
 ENV MQTT=mqtt://localhost
-WORKDIR /usr/bin/
+WORKDIR /usr/local/bundle/bin/
 COPY ./apps/waterfurnace-aurora/entrypoint.sh /entrypoint.sh
 CMD [ "/entrypoint.sh"]
 
