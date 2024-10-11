@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.12-alpine@sha256:e75de178bc15e72f3f16bf75a6b484e33d39a456f03fc771a2b3abb9146b75f8
+FROM docker.io/library/python:3.12.7-alpine
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -25,21 +25,24 @@ WORKDIR /app
 RUN \
     apk add --no-cache \
         bash \
+        binutils \
         bluez \
         bluez-deprecated \
         bluez-libs \
         ca-certificates \
         catatonit \
+        coreutils \
         cups-libs \
         curl \
         eudev-libs \
         ffmpeg \
-        gcc \
         git \
-        go2rtc \
+        iputils \
+        jo \
         jq \
         libcap \
-        libturbojpeg \
+        libjpeg-turbo-dev \
+        libpcap-dev \
         libstdc++ \
         libxslt \
         mariadb-connector-c \
@@ -50,6 +53,7 @@ RUN \
         postgresql-libs \
         socat \
         tiff \
+        trurl \
         tzdata \
         unzip \
     && \
@@ -67,14 +71,11 @@ RUN \
         libxml2-dev \
         libxslt-dev \
         postgresql-dev \
-        proj \
-        proj-dev \
-        proj-util \
         unixodbc-dev \
     && \
-    pip install uv
-
-RUN    curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar.gz" \
+    pip install uv \
+    && \
+    curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar.gz" \
         | tar xzf - -C /tmp --strip-components=1 \
     && \
     case "${TARGETPLATFORM}" in \
@@ -88,29 +89,23 @@ RUN    curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar
     && \
     HOME_ASSISTANT_BASE=$(curl -fsSL "https://raw.githubusercontent.com/home-assistant/core/${VERSION}/build.yaml" | grep "${ARCH}: " | cut -d ":" -f3) \
     && \
-    uv pip install --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
+    uv pip install --system --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
         --requirement "https://raw.githubusercontent.com/home-assistant/docker/${HOME_ASSISTANT_BASE}/requirements.txt" \
     && \
-    uv pip install --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
+    uv pip install --system --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
         --requirement /tmp/requirements_all.txt \
     && \
-    uv pip install --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
-        homeassistant=="${VERSION}"
-
-RUN uv pip install pyproj bs4 \
-    && \
-    apk del --purge .build-deps \
-    && \
-    rm -rf \
-        /root/.cache \
-        /root/.cargo \
-        /tmp/*
+    uv pip install --system --only-binary=:all: --find-links "${HOMEASSISTANT_WHEELS}" \
+        homeassistant=="${VERSION}" \
+    && mkdir -p /config && chown nobody:nogroup -R /config \
+    && pip uninstall --yes uv && apk del --purge .build-deps \
+    && rm -rf /root/.cache /root/.cargo /tmp/*
 
 COPY ./apps/home-assistant/entrypoint.sh /entrypoint.sh
 
 WORKDIR /config
+VOLUME ["/config"]
 
-ENTRYPOINT ["/usr/bin/catatonit", "--"]
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/catatonit", "--", "/entrypoint.sh"]
 
 LABEL org.opencontainers.image.source="https://github.com/home-assistant/core"
