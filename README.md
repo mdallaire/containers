@@ -76,8 +76,6 @@ Container | Channel | Image
 [kubernetes-kubectl](https://github.com/mdallaire/pkgs/container/kubernetes-kubectl) | kubectl | ghcr.io/mdallaire/kubernetes-kubectl
 [nextcloud](https://github.com/mdallaire/pkgs/container/nextcloud) | stable | ghcr.io/mdallaire/nextcloud
 [parsedmarc](https://github.com/mdallaire/pkgs/container/parsedmarc) | stable | ghcr.io/mdallaire/parsedmarc
-[parsedmarc](https://github.com/mdallaire/pkgs/container/parsedmarc) | stable | ghcr.io/mdallaire/parsedmarc
-[parsedmarc](https://github.com/mdallaire/pkgs/container/parsedmarc) | stable | ghcr.io/mdallaire/parsedmarc
 [postgres-init](https://github.com/mdallaire/pkgs/container/postgres-init) | stable | ghcr.io/mdallaire/postgres-init
 [toolbox](https://github.com/mdallaire/pkgs/container/toolbox) | 3.20 | ghcr.io/mdallaire/toolbox
 [tt-rss](https://github.com/mdallaire/pkgs/container/tt-rss) | stable | ghcr.io/mdallaire/tt-rss
