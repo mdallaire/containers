@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 #shellcheck disable=SC2086
 
+export PATH="/config/.local/bin:$PATH"
+
 if [[ "${HOME_ASSISTANT__HACS_INSTALL}" == "true" ]]; then
     curl -sfSL https://get.hacs.xyz | bash -
 fi
 
 exec \
-    PATH="$HOME/.local/bin:$PATH" /usr/local/bin/hass \
+    /usr/local/bin/hass \
         --config /config \
         "$@"
