@@ -73,7 +73,7 @@ RUN \
         postgresql-dev \
         unixodbc-dev \
     && \
-    pip install uv \
+    pip install uv==0.4.15 \
     && \
     curl -fsSL "https://github.com/home-assistant/core/archive/${VERSION}.tar.gz" \
         | tar xzf - -C /tmp --strip-components=1 \
