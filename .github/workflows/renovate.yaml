@@ -18,7 +18,7 @@ on:
         default: latest
         required: false
   schedule:
-    - cron: "0 */6 * * *" # Every hour
+    - cron: "0 * * * *" # Every hour
   push:
     branches: ["main"]
     paths:
@@ -61,3 +61,5 @@ jobs:
           configurationFile: .github/renovate.json5
           token: "${{ steps.app-token.outputs.token }}"
           renovate-version: "${{ env.WORKFLOW_RENOVATE_VERSION }}"
+        env:
+          RENOVATE_HOST_RULES: '[{"matchHost":"ghcr.io","hostType":"docker","token":"${{ steps.app-token.outputs.token }}"}]'
