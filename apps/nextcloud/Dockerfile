@@ -1,4 +1,4 @@
-FROM docker.io/library/nextcloud:30.0.2-fpm-alpine@sha256:8ba9ee0a5b30640c5e9ce90b09ba9d1a133adbef18a20eb14ac20b8456e8662b
+FROM docker.io/library/nextcloud:30.0.2-fpm-alpine@sha256:7ed0537de1f450ade2bafa8f0e53be61434a0b73f033aab061c9512b5c3a738d
 
 ARG TARGETPLATFORM
 ARG VERSION
