@@ -12,9 +12,11 @@ ENV \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PIP_BREAK_SYSTEM_PACKAGES=1 \
     UV_SYSTEM_PYTHON=true \
+    UV_NO_CACHE=true \
     CRYPTOGRAPHY_DONT_BUILD_RUST=1 \
     HOMEASSISTANT_WHEELS="https://wheels.home-assistant.io/musllinux/" \
-    HOME="/config"
+    HOME="/config" \
+    PYTHONPATH="/config/deps"
 
 ENV UMASK="0002" \
     TZ="Etc/UTC"
