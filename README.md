@@ -78,7 +78,7 @@ Container | Channel | Image
 [postgres-init](https://github.com/mdallaire/pkgs/container/postgres-init) | stable | ghcr.io/mdallaire/postgres-init
 [toolbox](https://github.com/mdallaire/pkgs/container/toolbox) | 3.20 | ghcr.io/mdallaire/toolbox
 [tt-rss](https://github.com/mdallaire/pkgs/container/tt-rss) | stable | ghcr.io/mdallaire/tt-rss
-[ubuntu](https://github.com/mdallaire/pkgs/container/ubuntu) | jammy | ghcr.io/mdallaire/ubuntu
+[ubuntu](https://github.com/mdallaire/pkgs/container/ubuntu) | noble | ghcr.io/mdallaire/ubuntu
 [waterfurnace-aurora](https://github.com/mdallaire/pkgs/container/waterfurnace-aurora) | stable | ghcr.io/mdallaire/waterfurnace-aurora
 [weewx](https://github.com/mdallaire/pkgs/container/weewx) | stable | ghcr.io/mdallaire/weewx
 
