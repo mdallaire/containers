@@ -37,11 +37,10 @@ ENV \
 USER root
 
 RUN \
-    adduser kah \
+    useradd kah \
         --uid 568 \
-        --group \
+        --user-group \
         --system \
-        --disabled-password \
         --no-create-home \
     && \
     mkdir -p /config \
