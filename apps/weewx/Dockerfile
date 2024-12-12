@@ -42,7 +42,7 @@ uv pip install --system weewx==${VERSION} \
 
 COPY ./apps/weewx/entrypoint.sh /entrypoint.sh
 
-ENV WEEWX_ROOT /config
+ENV WEEWX_ROOT=/config
 WORKDIR /config
 ENTRYPOINT ["/usr/bin/catatonit", "--"]
 CMD ["/entrypoint.sh"]
