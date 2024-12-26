@@ -1,4 +1,4 @@
-FROM docker.io/library/ruby:3.2.5-alpine3.20@sha256:46bfb80f04bc0ac948625d1a1a9de5b7834109e955f302f8675a98d8f0ae4ecb
+FROM docker.io/library/ruby:3.4.1-alpine3.20@sha256:facbe18ccaba6006e0e603ef59f8648fe303695304fdb90a60efd092c2ba41c2
 
 ARG TARGETPLATFORM
 ARG VERSION
