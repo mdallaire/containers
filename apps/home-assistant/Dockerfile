@@ -110,9 +110,6 @@ USER nobody:nogroup
 WORKDIR /config
 VOLUME ["/config"]
 
-ENV \
-    UV_SYSTEM_PYTHON=false
-
 ENTRYPOINT ["/usr/bin/catatonit", "--", "/entrypoint.sh"]
 
 LABEL org.opencontainers.image.source="https://github.com/home-assistant/core"
