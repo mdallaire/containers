@@ -3,7 +3,7 @@
 set -e
 
 # Define the data file path
-BW_DATA_FILE="/.config/Bitwarden CLI/data.json"
+BW_DATA_FILE="/root/.config/Bitwarden CLI/data.json"
 
 # Configure server
 bw config server ${BW_HOST}
