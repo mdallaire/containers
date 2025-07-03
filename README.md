@@ -72,14 +72,11 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 Container | Channel | Image
 --- | --- | ---
 [bitwarden-cli](https://github.com/mdallaire/pkgs/container/bitwarden-cli) | stable | ghcr.io/mdallaire/bitwarden-cli
-[home-assistant](https://github.com/mdallaire/pkgs/container/home-assistant) | stable | ghcr.io/mdallaire/home-assistant
 [kubernetes-kubectl](https://github.com/mdallaire/pkgs/container/kubernetes-kubectl) | kubectl | ghcr.io/mdallaire/kubernetes-kubectl
-[parsedmarc](https://github.com/mdallaire/pkgs/container/parsedmarc) | stable | ghcr.io/mdallaire/parsedmarc
 [postgres-init](https://github.com/mdallaire/pkgs/container/postgres-init) | stable | ghcr.io/mdallaire/postgres-init
 [toolbox](https://github.com/mdallaire/pkgs/container/toolbox) | 3.20 | ghcr.io/mdallaire/toolbox
 [tt-rss](https://github.com/mdallaire/pkgs/container/tt-rss) | stable | ghcr.io/mdallaire/tt-rss
 [ubuntu](https://github.com/mdallaire/pkgs/container/ubuntu) | noble | ghcr.io/mdallaire/ubuntu
 [waterfurnace-aurora](https://github.com/mdallaire/pkgs/container/waterfurnace-aurora) | stable | ghcr.io/mdallaire/waterfurnace-aurora
-[weewx](https://github.com/mdallaire/pkgs/container/weewx) | stable | ghcr.io/mdallaire/weewx
 
 
